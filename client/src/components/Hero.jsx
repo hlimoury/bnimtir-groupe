@@ -8,6 +8,7 @@ export default function Hero() {
         <div className="hero__shape hero__shape--1" />
         <div className="hero__shape hero__shape--2" />
         <div className="hero__shape hero__shape--3" />
+        <div className="hero__shape hero__shape--4" />
       </div>
 
       <div className="container hero__content">
@@ -26,7 +27,7 @@ export default function Hero() {
             Notre engagement : l'excellence au service de vos besoins.
           </p>
           <div className="hero__actions">
-            <a href="#services" className="btn btn-primary">
+            <a href="#services" className="btn btn-primary btn-shine">
               Découvrir nos services
               <FiArrowRight />
             </a>
@@ -38,7 +39,14 @@ export default function Hero() {
 
         <div className="hero__visual">
           <div className="hero__card">
-            <img src="/logo.jpg" alt="Logo BNIMTIR GROUPE - Gestion syndic, intérim, nettoyage et sécurité au Maroc" className="hero__logo" width="220" height="auto" />
+            <div className="hero__card-glow" />
+            <img
+              src="/logo.jpg"
+              alt="Logo BNIMTIR GROUPE - Gestion syndic, intérim, nettoyage et sécurité au Maroc"
+              className="hero__logo"
+              width="220"
+              height="auto"
+            />
             <div className="hero__stats">
               <div className="hero__stat">
                 <span className="hero__stat-number">4+</span>

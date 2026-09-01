@@ -1,22 +1,43 @@
 .services {
   background: var(--gray-50);
+  position: relative;
+  overflow: hidden;
+}
+
+.services__decor {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--bleu-ciel-glow) 0%, transparent 70%);
+  pointer-events: none;
+  animation: floatSlow 15s ease-in-out infinite;
 }
 
 .services__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.services__grid > .reveal {
+  height: 100%;
 }
 
 .services__card {
   background: var(--white);
   border-radius: var(--radius-lg);
   border: 1px solid var(--gray-200);
-  transition: all 0.3s ease;
+  transition: all 0.4s var(--ease-out);
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .services__card::before {
@@ -33,8 +54,8 @@
 }
 
 .services__card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-xl);
   border-color: var(--bleu-ciel);
 }
 

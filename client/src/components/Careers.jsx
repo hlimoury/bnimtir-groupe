@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FiUpload, FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
+import AnimateOnScroll from './AnimateOnScroll';
 import './Careers.css';
 
 const postes = [
@@ -73,7 +74,7 @@ export default function Careers() {
     <section id="carrieres" className="section careers">
       <div className="container">
         <div className="careers__grid">
-          <div className="careers__info">
+          <AnimateOnScroll direction="left" className="careers__info">
             <span className="section-tag">Carrières</span>
             <h2 className="section-title careers__title">
               Rejoignez BNIMTIR GROUPE
@@ -97,9 +98,9 @@ export default function Careers() {
                 <li>Missions variées et enrichissantes</li>
               </ul>
             </div>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="careers__form-wrapper">
+          <AnimateOnScroll direction="right" delay={150} className="careers__form-wrapper">
             <form className="careers__form" onSubmit={handleSubmit}>
               <h3 className="careers__form-title">Déposer votre candidature</h3>
 
@@ -217,7 +218,7 @@ export default function Careers() {
                 {loading ? 'Envoi en cours...' : 'Envoyer ma candidature'}
               </button>
             </form>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import AnimateOnScroll from './AnimateOnScroll';
 import './Partners.css';
 
 const partners = [
@@ -60,15 +61,17 @@ export default function Partners() {
   return (
     <section id="partenaires" className="section partners" aria-labelledby="partners-title">
       <div className="container">
-        <header className="section-header">
-          <span className="section-tag">Nos partenaires</span>
-          <h2 id="partners-title" className="section-title">
-            Ils nous font confiance
-          </h2>
-          <p className="section-subtitle">
-            BNIMTIR GROUPE collabore avec des entreprises de renom au Maroc.
-          </p>
-        </header>
+        <AnimateOnScroll direction="up">
+          <header className="section-header">
+            <span className="section-tag">Nos partenaires</span>
+            <h2 id="partners-title" className="section-title">
+              Ils nous font confiance
+            </h2>
+            <p className="section-subtitle">
+              BNIMTIR GROUPE collabore avec des entreprises de renom au Maroc.
+            </p>
+          </header>
+        </AnimateOnScroll>
       </div>
 
       <div className="partners__marquee">

@@ -8,6 +8,7 @@ import Careers from './components/Careers';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Seo from './components/Seo';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

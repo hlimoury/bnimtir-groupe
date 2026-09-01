@@ -23,6 +23,14 @@
   background: var(--gray-50);
   border-radius: var(--radius-lg);
   border: 1px solid var(--gray-200);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact__card:hover {
+  transform: translateX(6px);
+  border-color: var(--bleu-ciel);
+  box-shadow: var(--shadow-sm);
+  background: var(--white);
 }
 
 .contact__icon {
@@ -76,6 +84,12 @@
   padding: 2rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--gray-200);
+  transition: box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.contact__form:focus-within {
+  border-color: var(--bleu-ciel);
+  box-shadow: var(--shadow-md);
 }
 
 .contact__submit {

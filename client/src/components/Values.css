@@ -1,5 +1,5 @@
 .values {
-  background: var(--white);
+  background: linear-gradient(180deg, var(--white) 0%, var(--bleu-ciel-light) 50%, var(--white) 100%);
 }
 
 .values__grid {
@@ -8,25 +8,37 @@
   gap: 2rem;
 }
 
+.values__grid > .reveal {
+  height: 100%;
+}
+
 .values__card {
   text-align: center;
   padding: 2rem 1.5rem;
   border-radius: var(--radius-lg);
-  background: var(--gray-50);
+  background: var(--white);
   border: 1px solid var(--gray-200);
-  transition: all 0.3s ease;
+  transition: all 0.4s var(--ease-out);
+  height: 100%;
+  box-shadow: var(--shadow-sm);
 }
 
 .values__card:hover {
-  background: var(--bleu-ciel-light);
+  background: var(--white);
   border-color: var(--bleu-ciel);
-  transform: translateY(-4px);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.values__card:hover .values__icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(0, 168, 232, 0.35);
 }
 
 .values__icon {
   width: 64px;
   height: 64px;
-  background: var(--bleu-ciel);
+  background: linear-gradient(135deg, var(--bleu-ciel), var(--bleu-ciel-dark));
   color: var(--white);
   border-radius: 50%;
   display: flex;
@@ -34,6 +46,7 @@
   justify-content: center;
   font-size: 1.5rem;
   margin: 0 auto 1.25rem;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease;
 }
 
 .values__title {

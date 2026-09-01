@@ -4,7 +4,9 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--white) 0%, var(--bleu-ciel-light) 100%);
+  background: linear-gradient(135deg, var(--white) 0%, var(--bleu-ciel-light) 50%, var(--white) 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
 }
 
 .hero__bg {
@@ -25,6 +27,7 @@
   height: 500px;
   top: -150px;
   right: -100px;
+  animation: floatSlow 8s ease-in-out infinite;
 }
 
 .hero__shape--2 {
@@ -32,6 +35,7 @@
   height: 300px;
   bottom: -50px;
   left: -80px;
+  animation: floatSlow 10s ease-in-out infinite reverse;
 }
 
 .hero__shape--3 {
@@ -40,6 +44,16 @@
   top: 40%;
   left: 30%;
   opacity: 0.5;
+  animation: floatSlow 7s ease-in-out infinite 1s;
+}
+
+.hero__shape--4 {
+  width: 120px;
+  height: 120px;
+  top: 20%;
+  right: 25%;
+  background: rgba(0, 168, 232, 0.08);
+  animation: floatSlow 6s ease-in-out infinite 0.5s;
 }
 
 .hero__content {
@@ -63,6 +77,12 @@
   font-weight: 600;
   box-shadow: var(--shadow-sm);
   margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  border: 1px solid rgba(0, 168, 232, 0.15);
+}
+
+.hero__badge svg {
+  animation: iconBounce 2s ease-in-out infinite;
 }
 
 .hero__title {
@@ -71,11 +91,25 @@
   line-height: 1.15;
   color: var(--gray-900);
   margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
 .hero__highlight {
   color: var(--bleu-ciel);
   position: relative;
+  display: inline-block;
+}
+
+.hero__highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 100%;
+  height: 8px;
+  background: rgba(0, 168, 232, 0.2);
+  border-radius: 4px;
+  z-index: -1;
 }
 
 .hero__description {
@@ -84,31 +118,51 @@
   line-height: 1.8;
   margin-bottom: 2rem;
   max-width: 520px;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
 
 .hero__actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
 }
 
 .hero__visual {
   display: flex;
   justify-content: center;
+  animation: fadeInRight 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
 }
 
 .hero__card {
+  position: relative;
   background: var(--white);
   border-radius: var(--radius-lg);
   padding: 3rem;
   box-shadow: var(--shadow-lg);
   text-align: center;
   border: 1px solid var(--gray-200);
+  animation: float 6s ease-in-out infinite, pulseGlow 4s ease-in-out infinite;
+}
+
+.hero__card-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--bleu-ciel), transparent, var(--bleu-ciel));
+  opacity: 0.3;
+  z-index: -1;
+  filter: blur(8px);
 }
 
 .hero__logo {
   width: 220px;
   margin-bottom: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.hero__card:hover .hero__logo {
+  transform: scale(1.05);
 }
 
 .hero__stats {
@@ -124,6 +178,11 @@
   font-size: 2rem;
   font-weight: 800;
   color: var(--bleu-ciel);
+  transition: transform 0.3s ease;
+}
+
+.hero__stat:hover .hero__stat-number {
+  transform: scale(1.1);
 }
 
 .hero__stat-label {
@@ -149,6 +208,7 @@
 
   .hero__card {
     padding: 2rem;
+    animation: pulseGlow 4s ease-in-out infinite;
   }
 
   .hero__logo {

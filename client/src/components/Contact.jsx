@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FiMail, FiMapPin, FiPhone, FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import { FaLinkedin } from 'react-icons/fa';
+import AnimateOnScroll from './AnimateOnScroll';
 import './Contact.css';
 
 const PHONE = '0532-465151';
@@ -54,17 +55,20 @@ export default function Contact() {
   return (
     <section id="contact" className="section contact" aria-labelledby="contact-title">
       <div className="container">
-        <header className="section-header">
-          <span className="section-tag">Contact</span>
-          <h2 id="contact-title" className="section-title">Contactez-nous</h2>
-          <p className="section-subtitle">
-            Une question, un projet ? N'hésitez pas à nous contacter. Notre équipe
-            au Maroc vous répondra dans les plus brefs délais.
-          </p>
-        </header>
+        <AnimateOnScroll direction="up">
+          <header className="section-header">
+            <span className="section-tag">Contact</span>
+            <h2 id="contact-title" className="section-title">Contactez-nous</h2>
+            <p className="section-subtitle">
+              Une question, un projet ? N'hésitez pas à nous contacter. Notre équipe
+              au Maroc vous répondra dans les plus brefs délais.
+            </p>
+          </header>
+        </AnimateOnScroll>
 
         <div className="contact__grid">
-          <address className="contact__info">
+          <AnimateOnScroll direction="left" delay={100}>
+            <address className="contact__info">
             <div className="contact__card">
               <FiMail className="contact__icon" aria-hidden="true" />
               <div>
@@ -100,7 +104,9 @@ export default function Contact() {
               Suivez-nous sur LinkedIn
             </a>
           </address>
+          </AnimateOnScroll>
 
+          <AnimateOnScroll direction="right" delay={200}>
           <form className="contact__form" onSubmit={handleSubmit} noValidate>
             <div className="form-group">
               <label htmlFor="contact-nom">Nom complet *</label>
@@ -169,6 +175,7 @@ export default function Contact() {
               {loading ? 'Envoi en cours...' : 'Envoyer le message'}
             </button>
           </form>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

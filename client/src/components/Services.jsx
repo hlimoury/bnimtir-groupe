@@ -1,3 +1,4 @@
+import AnimateOnScroll from './AnimateOnScroll';
 import './Services.css';
 
 const services = [
@@ -12,7 +13,7 @@ const services = [
   {
     image: '/services/interim.jpg',
     title: 'Intérim',
-    alt: 'Services d\'intérim au Maroc - BNIMTIR GROUPE',
+    alt: "Services d'intérim au Maroc - BNIMTIR GROUPE",
     description:
       'Mise à disposition de personnel qualifié pour répondre à vos besoins temporaires en renfort, remplacement ou missions ponctuelles.',
     features: ['Personnel qualifié', 'Réactivité', 'Missions courtes et longues'],
@@ -31,48 +32,53 @@ const services = [
     alt: 'Services de sécurité et gardiennage au Maroc - BNIMTIR GROUPE',
     description:
       'Solutions de sécurité pour protéger vos locaux, vos biens et vos collaborateurs avec des agents formés et certifiés.',
-    features: ['Gardiennage', 'Surveillance', 'Contrôle d\'accès'],
+    features: ['Gardiennage', 'Surveillance', "Contrôle d'accès"],
   },
 ];
 
 export default function Services() {
   return (
     <section id="services" className="section services" aria-labelledby="services-title">
+      <div className="services__decor" />
       <div className="container">
-        <header className="section-header">
-          <span className="section-tag">Nos services</span>
-          <h2 id="services-title" className="section-title">
-            Des solutions adaptées à vos besoins
-          </h2>
-          <p className="section-subtitle">
-            BNIMTIR GROUPE propose une gamme complète de services professionnels
-            au Maroc pour accompagner les entreprises et les copropriétés au quotidien.
-          </p>
-        </header>
+        <AnimateOnScroll direction="up">
+          <header className="section-header">
+            <span className="section-tag">Nos services</span>
+            <h2 id="services-title" className="section-title">
+              Des solutions adaptées à vos besoins
+            </h2>
+            <p className="section-subtitle">
+              BNIMTIR GROUPE propose une gamme complète de services professionnels
+              au Maroc pour accompagner les entreprises et les copropriétés au quotidien.
+            </p>
+          </header>
+        </AnimateOnScroll>
 
         <div className="services__grid">
-          {services.map((service) => (
-            <article key={service.title} className="services__card">
-              <div className="services__image-wrapper">
-                <img
-                  src={service.image}
-                  alt={service.alt}
-                  className="services__image"
-                  loading="lazy"
-                  width="400"
-                  height="400"
-                />
-              </div>
-              <div className="services__content">
-                <h3 className="services__title">{service.title}</h3>
-                <p className="services__description">{service.description}</p>
-                <ul className="services__features" aria-label={`Avantages ${service.title}`}>
-                  {service.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
+          {services.map((service, index) => (
+            <AnimateOnScroll key={service.title} delay={index * 120} direction="up">
+              <article className="services__card">
+                <div className="services__image-wrapper">
+                  <img
+                    src={service.image}
+                    alt={service.alt}
+                    className="services__image"
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                  />
+                </div>
+                <div className="services__content">
+                  <h3 className="services__title">{service.title}</h3>
+                  <p className="services__description">{service.description}</p>
+                  <ul className="services__features" aria-label={`Avantages ${service.title}`}>
+                    {service.features.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>

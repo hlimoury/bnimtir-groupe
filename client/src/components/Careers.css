@@ -60,6 +60,11 @@
   padding: 2.5rem;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--gray-200);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.careers__form-wrapper:hover {
+  box-shadow: var(--shadow-xl);
 }
 
 .careers__form-title {

@@ -1,4 +1,5 @@
 import { FiAward, FiHeart, FiTarget, FiZap } from 'react-icons/fi';
+import AnimateOnScroll from './AnimateOnScroll';
 import './Values.css';
 
 const values = [
@@ -28,24 +29,28 @@ export default function Values() {
   return (
     <section className="section values">
       <div className="container">
-        <div className="section-header">
-          <span className="section-tag">Nos valeurs</span>
-          <h2 className="section-title">Ce qui nous définit</h2>
-          <p className="section-subtitle">
-            Des valeurs fortes qui guident notre action au quotidien et font de
-            BNIMTIR GROUPE un partenaire de confiance.
-          </p>
-        </div>
+        <AnimateOnScroll direction="up">
+          <div className="section-header">
+            <span className="section-tag">Nos valeurs</span>
+            <h2 className="section-title">Ce qui nous définit</h2>
+            <p className="section-subtitle">
+              Des valeurs fortes qui guident notre action au quotidien et font de
+              BNIMTIR GROUPE un partenaire de confiance.
+            </p>
+          </div>
+        </AnimateOnScroll>
 
         <div className="values__grid">
-          {values.map((value) => (
-            <div key={value.title} className="values__card">
-              <div className="values__icon">
-                <value.icon />
+          {values.map((value, index) => (
+            <AnimateOnScroll key={value.title} delay={index * 100} direction="scale">
+              <div className="values__card">
+                <div className="values__icon">
+                  <value.icon />
+                </div>
+                <h3 className="values__title">{value.title}</h3>
+                <p className="values__description">{value.description}</p>
               </div>
-              <h3 className="values__title">{value.title}</h3>
-              <p className="values__description">{value.description}</p>
-            </div>
+            </AnimateOnScroll>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { FiCheckCircle } from 'react-icons/fi';
+import AnimateOnScroll from './AnimateOnScroll';
 import './About.css';
 
 const points = [
@@ -11,9 +12,11 @@ const points = [
 export default function About() {
   return (
     <section id="apropos" className="section about">
+      <div className="about__decor about__decor--1" />
+      <div className="about__decor about__decor--2" />
       <div className="container">
         <div className="about__grid">
-          <div className="about__content">
+          <AnimateOnScroll direction="left" className="about__content">
             <span className="section-tag">À propos</span>
             <h2 className="section-title about__title">
               BNIMTIR GROUPE, votre partenaire multi-services
@@ -37,9 +40,9 @@ export default function About() {
                 </li>
               ))}
             </ul>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="about__visual">
+          <AnimateOnScroll direction="right" delay={200} className="about__visual">
             <div className="about__card about__card--main">
               <img src="/logo.jpg" alt="BNIMTIR GROUPE" className="about__logo" />
               <p className="about__tagline">Excellence & Professionnalisme</p>
@@ -48,7 +51,7 @@ export default function About() {
               <span className="about__accent-number">BG</span>
               <p>Force & Fiabilité</p>
             </div>
-          </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

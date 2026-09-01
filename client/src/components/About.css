@@ -1,5 +1,30 @@
 .about {
   background: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.about__decor {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: var(--bleu-ciel-glow);
+}
+
+.about__decor--1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -150px;
+  animation: floatSlow 12s ease-in-out infinite;
+}
+
+.about__decor--2 {
+  width: 250px;
+  height: 250px;
+  bottom: -80px;
+  left: -80px;
+  animation: floatSlow 10s ease-in-out infinite reverse;
 }
 
 .about__grid {
@@ -57,6 +82,12 @@
   border: 2px solid var(--bleu-ciel);
   text-align: center;
   z-index: 2;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease;
+}
+
+.about__card--main:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: var(--shadow-lg);
 }
 
 .about__logo {
@@ -79,7 +110,22 @@
   text-align: center;
   padding: 1.5rem 2rem;
   box-shadow: var(--shadow-lg);
+  animation: float 5s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
+
+.about__card--accent:hover {
+  transform: scale(1.05);
+}
+
+.reveal--visible .about__list-item {
+  animation: fadeInUp 0.5s var(--ease-out) both;
+}
+
+.reveal--visible .about__list-item:nth-child(1) { animation-delay: 0.1s; }
+.reveal--visible .about__list-item:nth-child(2) { animation-delay: 0.2s; }
+.reveal--visible .about__list-item:nth-child(3) { animation-delay: 0.3s; }
+.reveal--visible .about__list-item:nth-child(4) { animation-delay: 0.4s; }
 
 .about__accent-number {
   display: block;
