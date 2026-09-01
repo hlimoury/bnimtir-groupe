@@ -25,7 +25,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand">
-            <img src="/logo.jpg" alt="BNIMTIR GROUPE" className="footer__logo" />
+            <div className="footer__logo-wrap">
+              <img src="/logo.jpg" alt="BNIMTIR GROUPE" className="footer__logo" />
+            </div>
             <p className="footer__description">
               BNIMTIR GROUPE — Votre partenaire de confiance au Maroc pour la gestion de
               syndic, l'intérim, le nettoyage et la sécurité.
