@@ -19,7 +19,9 @@
 .hero__shape {
   position: absolute;
   border-radius: 50%;
-  background: var(--bleu-ciel-glow);
+  background: radial-gradient(circle at 30% 30%, rgba(0, 168, 232, 0.25), rgba(0, 168, 232, 0.08));
+  filter: blur(2px);
+  will-change: transform;
 }
 
 .hero__shape--1 {
@@ -27,7 +29,7 @@
   height: 500px;
   top: -150px;
   right: -100px;
-  animation: floatSlow 8s ease-in-out infinite;
+  animation: bubbleDrift1 14s ease-in-out infinite;
 }
 
 .hero__shape--2 {
@@ -35,25 +37,34 @@
   height: 300px;
   bottom: -50px;
   left: -80px;
-  animation: floatSlow 10s ease-in-out infinite reverse;
+  animation: bubbleDrift2 18s ease-in-out infinite;
 }
 
 .hero__shape--3 {
-  width: 200px;
-  height: 200px;
-  top: 40%;
-  left: 30%;
-  opacity: 0.5;
-  animation: floatSlow 7s ease-in-out infinite 1s;
+  width: 220px;
+  height: 220px;
+  top: 35%;
+  left: 25%;
+  opacity: 0.6;
+  animation: bubbleDrift3 12s ease-in-out infinite;
 }
 
 .hero__shape--4 {
-  width: 120px;
-  height: 120px;
-  top: 20%;
-  right: 25%;
-  background: rgba(0, 168, 232, 0.08);
-  animation: floatSlow 6s ease-in-out infinite 0.5s;
+  width: 140px;
+  height: 140px;
+  top: 15%;
+  right: 20%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 168, 232, 0.2), rgba(0, 168, 232, 0.05));
+  animation: bubbleDrift4 10s ease-in-out infinite;
+}
+
+.hero__shape--5 {
+  width: 180px;
+  height: 180px;
+  bottom: 20%;
+  right: 35%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 168, 232, 0.18), rgba(0, 168, 232, 0.04));
+  animation: bubbleDrift2 16s ease-in-out infinite reverse;
 }
 
 .hero__content {

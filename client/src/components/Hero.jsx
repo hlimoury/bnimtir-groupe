@@ -9,6 +9,7 @@ export default function Hero() {
         <div className="hero__shape hero__shape--2" />
         <div className="hero__shape hero__shape--3" />
         <div className="hero__shape hero__shape--4" />
+        <div className="hero__shape hero__shape--5" />
       </div>
 
       <div className="container hero__content">
