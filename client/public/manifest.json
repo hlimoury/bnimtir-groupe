@@ -1,0 +1,17 @@
+{
+  "name": "BNIMTIR GROUPE",
+  "short_name": "BNIMTIR",
+  "description": "Gestion de syndic, intérim, nettoyage et sécurité au Maroc",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#00a8e8",
+  "lang": "fr",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    }
+  ]
+}

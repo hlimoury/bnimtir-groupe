@@ -1,0 +1,157 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--white) 0%, var(--bleu-ciel-light) 100%);
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__shape {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--bleu-ciel-glow);
+}
+
+.hero__shape--1 {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  right: -100px;
+}
+
+.hero__shape--2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -80px;
+}
+
+.hero__shape--3 {
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  left: 30%;
+  opacity: 0.5;
+}
+
+.hero__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 4rem 1.5rem;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  color: var(--bleu-ciel);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+}
+
+.hero__title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--gray-900);
+  margin-bottom: 1.5rem;
+}
+
+.hero__highlight {
+  color: var(--bleu-ciel);
+  position: relative;
+}
+
+.hero__description {
+  font-size: 1.1rem;
+  color: var(--gray-600);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.hero__card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  border: 1px solid var(--gray-200);
+}
+
+.hero__logo {
+  width: 220px;
+  margin-bottom: 2rem;
+}
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  border-top: 1px solid var(--gray-200);
+  padding-top: 2rem;
+}
+
+.hero__stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--bleu-ciel);
+}
+
+.hero__stat-label {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero__description {
+    margin: 0 auto 2rem;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__card {
+    padding: 2rem;
+  }
+
+  .hero__logo {
+    width: 180px;
+  }
+}

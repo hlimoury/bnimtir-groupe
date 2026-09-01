@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: bnimtir-groupe
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: EMAIL_SERVICE
+        value: bnimtirservice@gmail.com
+      - key: EMAIL_SECURITY
+        value: secubnimtir@gmail.com

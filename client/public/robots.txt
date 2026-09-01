@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bnimtir-groupe.onrender.com/sitemap.xml

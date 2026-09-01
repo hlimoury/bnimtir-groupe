@@ -1,0 +1,33 @@
+.app {
+  overflow-x: hidden;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--bleu-ciel);
+  color: var(--white);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid var(--gray-900);
+  outline-offset: 2px;
+}
+
+main {
+  padding-top: 80px;
+}
+
+@media (max-width: 480px) {
+  main {
+    padding-top: 72px;
+  }
+}
