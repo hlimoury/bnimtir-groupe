@@ -55,7 +55,7 @@ function PartnerStrip({ items, ariaHidden = false }) {
 }
 
 export default function Partners() {
-  const stripItems = [...partners, ...partners, ...partners];
+  const stripItems = [...partners, ...partners, ...partners, ...partners];
 
   return (
     <section id="partenaires" className="section partners" aria-labelledby="partners-title">
