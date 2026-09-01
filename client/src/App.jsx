@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Values from './components/Values';
+import Partners from './components/Partners';
 import Careers from './components/Careers';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -22,6 +23,7 @@ function App() {
         <About />
         <Services />
         <Values />
+        <Partners />
         <Careers />
         <Contact />
       </main>
