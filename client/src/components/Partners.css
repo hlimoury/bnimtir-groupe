@@ -5,60 +5,79 @@
 }
 
 .partners .section-header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-.partners__wrapper {
-  overflow: hidden;
+.partners__marquee {
   width: 100%;
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    var(--bleu-ciel-light) 0%,
+    var(--white) 15%,
+    var(--white) 85%,
+    var(--bleu-ciel-light) 100%
   );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
+  border-top: 2px solid var(--bleu-ciel);
+  border-bottom: 2px solid var(--bleu-ciel);
+  padding: 1.25rem 0;
+  position: relative;
 }
 
-.partners__track {
+.partners__marquee::before,
+.partners__marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.partners__marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bleu-ciel-light), transparent);
+}
+
+.partners__marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bleu-ciel-light), transparent);
+}
+
+.partners__marquee-inner {
   display: flex;
-  align-items: center;
-  gap: 2rem;
   width: max-content;
-  animation: partners-scroll 28s linear infinite;
-  padding: 0.5rem 0;
+  animation: partners-marquee 35s linear infinite;
 }
 
-.partners__wrapper:hover .partners__track {
+.partners__marquee:hover .partners__marquee-inner {
   animation-play-state: paused;
 }
 
-.partners__card {
+.partners__strip {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 0 2rem;
+  flex-shrink: 0;
+}
+
+.partners__logo-link {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 140px;
-  height: 140px;
-  background: var(--gray-50);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  transition: all 0.3s ease;
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
-.partners__card:hover {
-  transform: translateY(-4px) scale(1.05);
+.partners__logo-link:hover {
+  transform: scale(1.12);
   box-shadow: var(--shadow-md);
-  border-color: var(--bleu-ciel);
 }
 
 .partners__logo {
@@ -66,9 +85,10 @@
   height: 100%;
   object-fit: contain;
   border-radius: var(--radius);
+  display: block;
 }
 
-@keyframes partners-scroll {
+@keyframes partners-marquee {
   0% {
     transform: translateX(0);
   }
@@ -78,36 +98,47 @@
 }
 
 @media (max-width: 768px) {
-  .partners__card {
-    width: 110px;
-    height: 110px;
-    padding: 0.75rem;
+  .partners__strip {
+    gap: 2.5rem;
+    padding: 0 1.25rem;
   }
 
-  .partners__track {
-    gap: 1.25rem;
-    animation-duration: 22s;
+  .partners__logo-link {
+    width: 80px;
+    height: 80px;
+  }
+
+  .partners__marquee-inner {
+    animation-duration: 25s;
+  }
+
+  .partners__marquee::before,
+  .partners__marquee::after {
+    width: 40px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .partners__wrapper {
-    mask-image: none;
-    -webkit-mask-image: none;
-  }
-
-  .partners__track {
+  .partners__marquee-inner {
     animation: none;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 0 1.5rem;
   }
 
-  .partners__card:nth-child(n + 5) {
+  .partners__strip:nth-child(2) {
+    display: none;
+  }
+
+  .partners__strip {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .partners__strip .partners__logo-link:nth-child(n + 5) {
     display: none;
   }
 }

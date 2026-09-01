@@ -23,13 +23,13 @@ const partners = [
   },
 ];
 
-function PartnerCard({ partner }) {
+function PartnerLogo({ partner }) {
   return (
     <a
       href={partner.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="partners__card"
+      className="partners__logo-link"
       aria-label={`Visiter ${partner.name}`}
     >
       <img
@@ -37,15 +37,25 @@ function PartnerCard({ partner }) {
         alt={`Logo ${partner.name}`}
         className="partners__logo"
         loading="lazy"
-        width="120"
-        height="120"
+        width="100"
+        height="100"
       />
     </a>
   );
 }
 
+function PartnerStrip({ items, ariaHidden = false }) {
+  return (
+    <div className="partners__strip" aria-hidden={ariaHidden}>
+      {items.map((partner, index) => (
+        <PartnerLogo key={`${partner.name}-${index}`} partner={partner} />
+      ))}
+    </div>
+  );
+}
+
 export default function Partners() {
-  const track = [...partners, ...partners];
+  const stripItems = [...partners, ...partners, ...partners];
 
   return (
     <section id="partenaires" className="section partners" aria-labelledby="partners-title">
@@ -61,11 +71,10 @@ export default function Partners() {
         </header>
       </div>
 
-      <div className="partners__wrapper">
-        <div className="partners__track">
-          {track.map((partner, index) => (
-            <PartnerCard key={`${partner.name}-${index}`} partner={partner} />
-          ))}
+      <div className="partners__marquee">
+        <div className="partners__marquee-inner">
+          <PartnerStrip items={stripItems} />
+          <PartnerStrip items={stripItems} ariaHidden />
         </div>
       </div>
     </section>
