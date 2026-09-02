@@ -25,6 +25,8 @@ const partners = [
   },
 ];
 
+const stripItems = [...partners, ...partners, ...partners, ...partners];
+
 function PartnerLogo({ partner, visitLabel }) {
   return (
     <a
@@ -38,7 +40,8 @@ function PartnerLogo({ partner, visitLabel }) {
         src={partner.logo}
         alt={`Logo ${partner.name}`}
         className="partners__logo"
-        loading="lazy"
+        loading="eager"
+        decoding="async"
         width="100"
         height="100"
       />
@@ -48,9 +51,13 @@ function PartnerLogo({ partner, visitLabel }) {
 
 function PartnerStrip({ items, visitLabel, ariaHidden = false }) {
   return (
-    <div className="partners__strip" aria-hidden={ariaHidden}>
+    <div className="partners__strip" aria-hidden={ariaHidden ? 'true' : undefined}>
       {items.map((partner, index) => (
-        <PartnerLogo key={`${partner.name}-${index}`} partner={partner} visitLabel={visitLabel} />
+        <PartnerLogo
+          key={`${partner.name}-${index}`}
+          partner={partner}
+          visitLabel={visitLabel}
+        />
       ))}
     </div>
   );
@@ -58,7 +65,6 @@ function PartnerStrip({ items, visitLabel, ariaHidden = false }) {
 
 export default function Partners() {
   const { t } = useLanguage();
-  const stripItems = [...partners, ...partners, ...partners, ...partners];
 
   return (
     <section id="partenaires" className="section partners" aria-labelledby="partners-title">
@@ -74,7 +80,7 @@ export default function Partners() {
         </AnimateOnScroll>
       </div>
 
-      <div className="partners__marquee">
+      <div className="partners__marquee" dir="ltr">
         <div className="partners__marquee-inner">
           <PartnerStrip items={stripItems} visitLabel={t.partners.visit} />
           <PartnerStrip items={stripItems} visitLabel={t.partners.visit} ariaHidden />

@@ -11,6 +11,7 @@
 .partners__marquee {
   width: 100%;
   overflow: hidden;
+  direction: ltr;
   background: linear-gradient(
     90deg,
     var(--bleu-ciel-light) 0%,
@@ -46,11 +47,12 @@
 }
 
 .partners__marquee-inner {
-  display: inline-flex;
+  display: flex;
   flex-wrap: nowrap;
-  width: auto;
+  width: max-content;
   will-change: transform;
   animation: partners-marquee 25s linear infinite;
+  backface-visibility: hidden;
 }
 
 .partners__marquee:hover .partners__marquee-inner {
@@ -58,7 +60,7 @@
 }
 
 .partners__strip {
-  display: inline-flex;
+  display: flex;
   flex-wrap: nowrap;
   align-items: center;
   gap: 5rem;
@@ -76,6 +78,7 @@
   border-radius: var(--radius);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+  background: var(--white);
 }
 
 .partners__logo-link:hover {
