@@ -1,4 +1,5 @@
 import AnimateOnScroll from './AnimateOnScroll';
+import { useLanguage } from '../i18n/LanguageContext';
 import './Partners.css';
 
 const partners = [
@@ -24,14 +25,14 @@ const partners = [
   },
 ];
 
-function PartnerLogo({ partner }) {
+function PartnerLogo({ partner, visitLabel }) {
   return (
     <a
       href={partner.url}
       target="_blank"
       rel="noopener noreferrer"
       className="partners__logo-link"
-      aria-label={`Visiter ${partner.name}`}
+      aria-label={`${visitLabel} ${partner.name}`}
     >
       <img
         src={partner.logo}
@@ -45,17 +46,18 @@ function PartnerLogo({ partner }) {
   );
 }
 
-function PartnerStrip({ items, ariaHidden = false }) {
+function PartnerStrip({ items, visitLabel, ariaHidden = false }) {
   return (
     <div className="partners__strip" aria-hidden={ariaHidden}>
       {items.map((partner, index) => (
-        <PartnerLogo key={`${partner.name}-${index}`} partner={partner} />
+        <PartnerLogo key={`${partner.name}-${index}`} partner={partner} visitLabel={visitLabel} />
       ))}
     </div>
   );
 }
 
 export default function Partners() {
+  const { t } = useLanguage();
   const stripItems = [...partners, ...partners, ...partners, ...partners];
 
   return (
@@ -63,21 +65,19 @@ export default function Partners() {
       <div className="container">
         <AnimateOnScroll direction="up">
           <header className="section-header">
-            <span className="section-tag">Nos partenaires</span>
+            <span className="section-tag">{t.partners.tag}</span>
             <h2 id="partners-title" className="section-title">
-              Ils nous font confiance
+              {t.partners.title}
             </h2>
-            <p className="section-subtitle">
-              BNIMTIR GROUPE collabore avec des entreprises de renom au Maroc.
-            </p>
+            <p className="section-subtitle">{t.partners.subtitle}</p>
           </header>
         </AnimateOnScroll>
       </div>
 
       <div className="partners__marquee">
         <div className="partners__marquee-inner">
-          <PartnerStrip items={stripItems} />
-          <PartnerStrip items={stripItems} ariaHidden />
+          <PartnerStrip items={stripItems} visitLabel={t.partners.visit} />
+          <PartnerStrip items={stripItems} visitLabel={t.partners.visit} ariaHidden />
         </div>
       </div>
     </section>

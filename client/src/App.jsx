@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import HeroCarousel from './components/HeroCarousel';
+import HeroIntro from './components/HeroIntro';
 import About from './components/About';
 import Services from './components/Services';
 import Values from './components/Values';
@@ -10,18 +11,24 @@ import Footer from './components/Footer';
 import Seo from './components/Seo';
 import ScrollToTop from './components/ScrollToTop';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import { useLanguage } from './i18n/LanguageContext';
 import './App.css';
 
-function App() {
+function AppContent() {
+  const { t } = useLanguage();
+
   return (
     <div className="app">
       <a href="#accueil" className="skip-link">
-        Aller au contenu principal
+        {t.common.skipLink}
       </a>
       <Seo />
       <Navbar />
       <main id="main-content">
-        <Hero />
+        <div id="accueil">
+          <HeroCarousel />
+          <HeroIntro />
+        </div>
         <About />
         <Services />
         <Values />
@@ -34,6 +41,10 @@ function App() {
       <ScrollToTop />
     </div>
   );
+}
+
+function App() {
+  return <AppContent />;
 }
 
 export default App;

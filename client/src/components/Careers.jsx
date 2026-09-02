@@ -1,16 +1,8 @@
 import { useState } from 'react';
 import { FiUpload, FiSend, FiCheck, FiAlertCircle } from 'react-icons/fi';
 import AnimateOnScroll from './AnimateOnScroll';
+import { useLanguage } from '../i18n/LanguageContext';
 import './Careers.css';
-
-const postes = [
-  'Agent de sécurité',
-  'Agent de nettoyage',
-  'Gestionnaire de syndic',
-  'Assistant administratif',
-  'Intérimaire (tous secteurs)',
-  'Autre',
-];
 
 const initialForm = {
   nom: '',
@@ -22,6 +14,7 @@ const initialForm = {
 };
 
 export default function Careers() {
+  const { t } = useLanguage();
   const [form, setForm] = useState(initialForm);
   const [cv, setCv] = useState(null);
   const [status, setStatus] = useState(null);
@@ -61,10 +54,7 @@ export default function Careers() {
         setStatus({ type: 'error', message: data.message });
       }
     } catch {
-      setStatus({
-        type: 'error',
-        message: 'Erreur de connexion. Veuillez réessayer.',
-      });
+      setStatus({ type: 'error', message: t.common.connectionError });
     } finally {
       setLoading(false);
     }
@@ -75,38 +65,28 @@ export default function Careers() {
       <div className="container">
         <div className="careers__grid">
           <AnimateOnScroll direction="left" className="careers__info">
-            <span className="section-tag">Carrières</span>
-            <h2 className="section-title careers__title">
-              Rejoignez BNIMTIR GROUPE
-            </h2>
-            <p className="careers__text">
-              Vous souhaitez intégrer une équipe dynamique et professionnelle ?
-              BNIMTIR GROUPE recrute régulièrement des profils motivés dans
-              différents domaines.
-            </p>
-            <p className="careers__text">
-              Envoyez-nous votre candidature spontanée ou postulez à l'une de nos
-              offres. Nous étudions chaque dossier avec attention.
-            </p>
+            <span className="section-tag">{t.careers.tag}</span>
+            <h2 className="section-title careers__title">{t.careers.title}</h2>
+            <p className="careers__text">{t.careers.text1}</p>
+            <p className="careers__text">{t.careers.text2}</p>
 
             <div className="careers__benefits">
-              <h3>Pourquoi nous rejoindre ?</h3>
+              <h3>{t.careers.benefitsTitle}</h3>
               <ul>
-                <li>Environnement de travail professionnel</li>
-                <li>Opportunités d'évolution</li>
-                <li>Équipe soudée et bienveillante</li>
-                <li>Missions variées et enrichissantes</li>
+                {t.careers.benefits.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
           </AnimateOnScroll>
 
           <AnimateOnScroll direction="right" delay={150} className="careers__form-wrapper">
             <form className="careers__form" onSubmit={handleSubmit}>
-              <h3 className="careers__form-title">Déposer votre candidature</h3>
+              <h3 className="careers__form-title">{t.careers.formTitle}</h3>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="prenom">Prénom *</label>
+                  <label htmlFor="prenom">{t.careers.firstName} *</label>
                   <input
                     type="text"
                     id="prenom"
@@ -114,11 +94,11 @@ export default function Careers() {
                     value={form.prenom}
                     onChange={handleChange}
                     required
-                    placeholder="Votre prénom"
+                    placeholder={t.careers.placeholders.firstName}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="nom">Nom *</label>
+                  <label htmlFor="nom">{t.careers.lastName} *</label>
                   <input
                     type="text"
                     id="nom"
@@ -126,14 +106,14 @@ export default function Careers() {
                     value={form.nom}
                     onChange={handleChange}
                     required
-                    placeholder="Votre nom"
+                    placeholder={t.careers.placeholders.lastName}
                   />
                 </div>
               </div>
 
               <div className="form-row">
                 <div className="form-group">
-                  <label htmlFor="email">Email *</label>
+                  <label htmlFor="email">{t.careers.email} *</label>
                   <input
                     type="email"
                     id="email"
@@ -141,11 +121,11 @@ export default function Careers() {
                     value={form.email}
                     onChange={handleChange}
                     required
-                    placeholder="votre@email.com"
+                    placeholder={t.careers.placeholders.email}
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="telephone">Téléphone *</label>
+                  <label htmlFor="telephone">{t.careers.phone} *</label>
                   <input
                     type="tel"
                     id="telephone"
@@ -153,13 +133,13 @@ export default function Careers() {
                     value={form.telephone}
                     onChange={handleChange}
                     required
-                    placeholder="06 00 00 00 00"
+                    placeholder={t.careers.placeholders.phone}
                   />
                 </div>
               </div>
 
               <div className="form-group">
-                <label htmlFor="poste">Poste recherché *</label>
+                <label htmlFor="poste">{t.careers.position} *</label>
                 <select
                   id="poste"
                   name="poste"
@@ -167,29 +147,29 @@ export default function Careers() {
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Sélectionnez un poste</option>
-                  {postes.map((p) => (
-                    <option key={p} value={p}>
-                      {p}
+                  <option value="">{t.careers.selectPosition}</option>
+                  {t.careers.positions.map((p) => (
+                    <option key={p.value} value={p.value}>
+                      {p.label}
                     </option>
                   ))}
                 </select>
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Message (optionnel)</label>
+                <label htmlFor="message">{t.careers.message}</label>
                 <textarea
                   id="message"
                   name="message"
                   value={form.message}
                   onChange={handleChange}
                   rows="4"
-                  placeholder="Présentez-vous brièvement..."
+                  placeholder={t.careers.placeholders.message}
                 />
               </div>
 
               <div className="form-group">
-                <label htmlFor="cv">Votre CV * (PDF, DOC, DOCX - max 5 Mo)</label>
+                <label htmlFor="cv">{t.careers.cv}</label>
                 <div className="file-upload">
                   <input
                     type="file"
@@ -201,7 +181,7 @@ export default function Careers() {
                   />
                   <div className="file-upload__label">
                     <FiUpload />
-                    <span>{cv ? cv.name : 'Choisir un fichier'}</span>
+                    <span>{cv ? cv.name : t.careers.chooseFile}</span>
                   </div>
                 </div>
               </div>
@@ -215,7 +195,7 @@ export default function Careers() {
 
               <button type="submit" className="btn btn-primary careers__submit" disabled={loading}>
                 <FiSend />
-                {loading ? 'Envoi en cours...' : 'Envoyer ma candidature'}
+                {loading ? t.careers.sending : t.careers.submit}
               </button>
             </form>
           </AnimateOnScroll>

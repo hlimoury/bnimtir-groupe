@@ -35,7 +35,7 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Montserrat', 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--gray-800);
   background: var(--white);
   line-height: 1.6;
@@ -231,5 +231,57 @@ textarea {
 
   .btn {
     width: 100%;
+  }
+}
+
+/* RTL support */
+[dir='rtl'] .about__title.section-title::after,
+[dir='rtl'] .careers__title.section-title::after {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir='rtl'] .about__card--accent {
+  right: auto;
+  left: 0;
+}
+
+[dir='rtl'] .about__list-item {
+  padding-right: 0;
+}
+
+[dir='rtl'] .services__features li,
+[dir='rtl'] .careers__benefits li {
+  padding-left: 0;
+  padding-right: 1.25rem;
+}
+
+[dir='rtl'] .services__features li::before,
+[dir='rtl'] .careers__benefits li::before {
+  left: auto;
+  right: 0;
+}
+
+[dir='rtl'] .contact__card:hover {
+  transform: translateX(-6px);
+}
+
+[dir='rtl'] .whatsapp-float {
+  left: auto;
+  right: 2rem;
+}
+
+[dir='rtl'] .scroll-top {
+  right: auto;
+  left: 2rem;
+}
+
+@media (max-width: 480px) {
+  [dir='rtl'] .whatsapp-float {
+    right: 1.25rem;
+  }
+
+  [dir='rtl'] .scroll-top {
+    left: 1.25rem;
   }
 }

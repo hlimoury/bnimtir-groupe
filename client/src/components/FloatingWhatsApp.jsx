@@ -1,19 +1,20 @@
 import { FaWhatsapp } from 'react-icons/fa';
+import { useLanguage } from '../i18n/LanguageContext';
 import './FloatingWhatsApp.css';
 
 const PHONE = '212532465151';
-const MESSAGE = encodeURIComponent(
-  'Bonjour, je souhaite obtenir plus d\'informations sur vos services.'
-);
 
 export default function FloatingWhatsApp() {
+  const { t } = useLanguage();
+  const message = encodeURIComponent(t.common.whatsappMsg);
+
   return (
     <a
-      href={`https://wa.me/${PHONE}?text=${MESSAGE}`}
+      href={`https://wa.me/${PHONE}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-float"
-      aria-label="Contacter BNIMTIR GROUPE sur WhatsApp au 0532-465151"
+      aria-label={t.common.whatsapp}
       title="WhatsApp — 0532-465151"
     >
       <FaWhatsapp className="whatsapp-float__icon" aria-hidden="true" />

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { FiArrowUp } from 'react-icons/fi';
+import { useLanguage } from '../i18n/LanguageContext';
 import './ScrollToTop.css';
 
 export default function ScrollToTop() {
+  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ export default function ScrollToTop() {
       type="button"
       className={`scroll-top ${visible ? 'scroll-top--visible' : ''}`}
       onClick={scrollToTop}
-      aria-label="Retour en haut"
+      aria-label={t.common.scrollTop}
     >
       <FiArrowUp />
     </button>

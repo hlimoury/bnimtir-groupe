@@ -77,6 +77,37 @@
   font-size: 0.85rem;
 }
 
+.navbar__lang {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--bleu-ciel-light);
+  color: var(--bleu-ciel);
+  border: 1px solid rgba(0, 168, 232, 0.25);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-height: 44px;
+}
+
+.navbar__lang:hover {
+  background: var(--bleu-ciel);
+  color: var(--white);
+}
+
+.navbar__lang--mobile {
+  display: none;
+}
+
+.navbar__mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .navbar__toggle {
   display: none;
   background: none;
@@ -88,6 +119,14 @@
 }
 
 @media (max-width: 900px) {
+  .navbar__mobile-actions {
+    display: flex;
+  }
+
+  .navbar__lang--mobile {
+    display: inline-flex;
+  }
+
   .navbar__toggle {
     display: block;
   }
