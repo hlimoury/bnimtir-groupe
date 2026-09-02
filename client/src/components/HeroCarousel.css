@@ -1,7 +1,7 @@
 .hero-carousel {
   position: relative;
   width: 100%;
-  height: clamp(420px, 65vh, 580px);
+  height: clamp(520px, 78vh, 720px);
   overflow: hidden;
   background: var(--gray-900);
 }
@@ -197,7 +197,7 @@
 
 @media (max-width: 768px) {
   .hero-carousel {
-    height: clamp(380px, 70vh, 500px);
+    height: clamp(440px, 75vh, 580px);
   }
 
   .hero-carousel__panel {

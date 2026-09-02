@@ -24,15 +24,34 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
   background: var(--white);
   color: var(--bleu-ciel);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.25rem;
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 600;
   box-shadow: var(--shadow-sm);
   margin-bottom: 1.25rem;
   border: 1px solid rgba(0, 168, 232, 0.15);
+}
+
+.hero-intro__experience {
+  padding-left: 0.5rem;
+  margin-left: 0.25rem;
+  border-left: 2px solid var(--bleu-ciel);
+  font-weight: 700;
+  color: var(--bleu-ciel-dark);
+}
+
+[dir='rtl'] .hero-intro__experience {
+  padding-left: 0;
+  margin-left: 0;
+  padding-right: 0.5rem;
+  margin-right: 0.25rem;
+  border-left: none;
+  border-right: 2px solid var(--bleu-ciel);
 }
 
 .hero-intro__badge svg {

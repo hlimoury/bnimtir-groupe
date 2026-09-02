@@ -20,6 +20,7 @@ export default function HeroIntro() {
         <div className="hero-intro__badge">
           <FiShield />
           <span>{t.hero.badge}</span>
+          <span className="hero-intro__experience">{t.hero.experience}</span>
         </div>
 
         <p className="hero-intro__description">{t.hero.description}</p>
@@ -32,6 +33,10 @@ export default function HeroIntro() {
           <div className="hero-intro__stat">
             <span className="hero-intro__stat-number">100%</span>
             <span className="hero-intro__stat-label">{t.hero.stat2}</span>
+          </div>
+          <div className="hero-intro__stat">
+            <span className="hero-intro__stat-number">20+</span>
+            <span className="hero-intro__stat-label">{t.hero.stat3}</span>
           </div>
           <div className="hero-intro__stat hero-intro__stat--logo">
             <img src="/logo.jpg" alt="BNIMTIR GROUPE" className="hero-intro__logo" />

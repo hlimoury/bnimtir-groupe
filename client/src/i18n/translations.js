@@ -58,6 +58,7 @@ export const translations = {
     },
     hero: {
       badge: 'Votre partenaire de confiance',
+      experience: "+20 ans d'expérience",
       title: 'Des solutions professionnelles pour',
       highlight: 'votre entreprise',
       description:
@@ -66,6 +67,7 @@ export const translations = {
       ctaContact: 'Nous contacter',
       stat1: "Domaines d'expertise",
       stat2: 'Engagement qualité',
+      stat3: "Ans d'expérience",
     },
     about: {
       tag: 'À propos',
@@ -271,6 +273,7 @@ export const translations = {
     },
     hero: {
       badge: 'شريككم الموثوق',
+      experience: '+20 سنة من الخبرة',
       title: 'حلول مهنية لـ',
       highlight: 'مؤسستكم',
       description:
@@ -279,6 +282,7 @@ export const translations = {
       ctaContact: 'اتصل بنا',
       stat1: 'مجالات الخبرة',
       stat2: 'الالتزام بالجودة',
+      stat3: 'سنة من الخبرة',
     },
     about: {
       tag: 'من نحن',
