@@ -55,7 +55,7 @@ export default function HeroCarousel() {
         ))}
       </div>
 
-      <div className="container hero-carousel__content">
+      <div className="hero-carousel__content">
         <div
           className={`hero-carousel__panel ${isTransitioning ? 'hero-carousel__panel--fade' : ''}`}
           key={`${lang}-${current}`}

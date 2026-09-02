@@ -26,8 +26,36 @@ main {
   padding-top: 0;
 }
 
+.accueil {
+  position: relative;
+  overflow: hidden;
+  padding-top: 100px;
+  background: linear-gradient(
+    135deg,
+    var(--white) 0%,
+    var(--bleu-ciel-light) 50%,
+    var(--white) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 12s ease infinite;
+}
+
+.accueil__bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.accueil__carousel {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 1.5rem;
+}
+
 @media (max-width: 480px) {
-  main {
-    padding-top: 72px;
+  .accueil {
+    padding-top: 88px;
   }
 }

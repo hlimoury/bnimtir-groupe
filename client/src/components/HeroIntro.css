@@ -1,23 +1,13 @@
 .hero-intro {
   position: relative;
-  padding: 3rem 0;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--white) 0%, var(--bleu-ciel-light) 50%, var(--white) 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 12s ease infinite;
-}
-
-.hero-intro__bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
+  padding: 2.5rem 0 3rem;
+  z-index: 1;
+  background: transparent;
 }
 
 .hero-intro__content {
   position: relative;
   text-align: center;
-  z-index: 1;
 }
 
 .hero-intro__badge {

@@ -25,8 +25,17 @@ function AppContent() {
       <Seo />
       <Navbar />
       <main id="main-content">
-        <div id="accueil">
-          <HeroCarousel />
+        <div id="accueil" className="accueil">
+          <div className="accueil__bg" aria-hidden="true">
+            <div className="hero__shape hero__shape--1" />
+            <div className="hero__shape hero__shape--2" />
+            <div className="hero__shape hero__shape--3" />
+            <div className="hero__shape hero__shape--4" />
+            <div className="hero__shape hero__shape--5" />
+          </div>
+          <div className="container accueil__carousel">
+            <HeroCarousel />
+          </div>
           <HeroIntro />
         </div>
         <About />

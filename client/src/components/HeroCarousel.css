@@ -1,8 +1,10 @@
 .hero-carousel {
   position: relative;
   width: 100%;
-  height: clamp(360px, 52vh, 480px);
+  height: clamp(340px, 48vh, 460px);
   overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
   background: var(--gray-900);
 }
 
@@ -35,18 +37,19 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(15, 23, 42, 0.75) 0%,
-    rgba(15, 23, 42, 0.45) 45%,
-    rgba(15, 23, 42, 0.15) 100%
+    rgba(15, 23, 42, 0.72) 0%,
+    rgba(15, 23, 42, 0.35) 45%,
+    rgba(15, 23, 42, 0.1) 100%
   );
+  pointer-events: none;
 }
 
 [dir='rtl'] .hero-carousel__overlay {
   background: linear-gradient(
     270deg,
-    rgba(15, 23, 42, 0.75) 0%,
-    rgba(15, 23, 42, 0.45) 45%,
-    rgba(15, 23, 42, 0.15) 100%
+    rgba(15, 23, 42, 0.72) 0%,
+    rgba(15, 23, 42, 0.35) 45%,
+    rgba(15, 23, 42, 0.1) 100%
   );
 }
 
@@ -56,21 +59,22 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding-top: 100px;
-  padding-bottom: 4rem;
+  padding: 1.5rem 1.75rem 3.5rem;
 }
 
 .hero-carousel__panel {
-  max-width: 520px;
+  max-width: 480px;
   background: rgba(15, 23, 42, 0.82);
-  padding: 2rem 2.25rem;
+  padding: 1.5rem 1.75rem;
   border-left: 4px solid var(--bleu-ciel);
+  border-radius: 0 var(--radius) var(--radius) 0;
   animation: carouselPanelIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 [dir='rtl'] .hero-carousel__panel {
   border-left: none;
   border-right: 4px solid var(--bleu-ciel);
+  border-radius: var(--radius) 0 0 var(--radius);
 }
 
 .hero-carousel__panel--fade {
@@ -88,18 +92,18 @@
 }
 
 .hero-carousel__title {
-  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-size: clamp(1.4rem, 3.5vw, 2.1rem);
   font-weight: 800;
   color: var(--white);
   line-height: 1.15;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .hero-carousel__description {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.95rem;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-carousel__actions {
@@ -128,7 +132,7 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  padding: 1rem;
+  padding: 0.85rem;
   background: rgba(15, 23, 42, 0.85);
 }
 
@@ -197,13 +201,16 @@
 
 @media (max-width: 768px) {
   .hero-carousel {
-    height: clamp(280px, 45vh, 380px);
+    height: clamp(280px, 42vh, 360px);
+  }
+
+  .hero-carousel__content {
+    padding: 1rem 1rem 3.25rem;
   }
 
   .hero-carousel__panel {
     max-width: 100%;
-    padding: 1.5rem;
-    margin: 0 0.5rem;
+    padding: 1.25rem;
   }
 
   .hero-carousel__actions {

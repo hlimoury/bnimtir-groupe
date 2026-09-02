@@ -1,21 +1,12 @@
 import { FiShield } from 'react-icons/fi';
 import { useLanguage } from '../i18n/LanguageContext';
 import './HeroIntro.css';
-import './Hero.css';
 
 export default function HeroIntro() {
   const { t } = useLanguage();
 
   return (
     <section className="hero-intro">
-      <div className="hero-intro__bg">
-        <div className="hero__shape hero__shape--1" />
-        <div className="hero__shape hero__shape--2" />
-        <div className="hero__shape hero__shape--3" />
-        <div className="hero__shape hero__shape--4" />
-        <div className="hero__shape hero__shape--5" />
-      </div>
-
       <div className="container hero-intro__content">
         <div className="hero-intro__badge">
           <FiShield />
